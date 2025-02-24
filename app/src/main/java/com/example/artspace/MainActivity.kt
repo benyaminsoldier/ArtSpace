@@ -34,9 +34,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtSpaceScreen() {
     val artworks = listOf(
-        Artwork(R.drawable.luffy, "Starry Night", "Vincent van Gogh", "1889"),
-        Artwork(R.drawable.luffy, "The Persistence of Memory", "Salvador Dalí", "1931"),
-        Artwork(R.drawable.luffy, "Mona Lisa", "Leonardo da Vinci", "1503")
+        Artwork(R.drawable.luffy, "luffy"),
+        Artwork(R.drawable.luffy, "zoro"),
+        Artwork(R.drawable.luffy, "nami")
     )
     var currentArtworkIndex by remember { mutableStateOf(0) }
 
@@ -61,7 +61,7 @@ fun ArtSpaceScreen() {
     }
 }
 
-data class Artwork(val imageRes: Int, val title: String, val artist: String, val year: String)
+data class Artwork(val imageRes: Int, val title: String)
 
 @Composable
 fun ArtworkWall(artwork: Artwork) {
@@ -86,11 +86,7 @@ fun ArtworkDescriptor(artwork: Artwork) {
             fontWeight = FontWeight.Bold,
             color = Color.Black
         )
-        Text(
-            text = "${artwork.artist}, ${artwork.year}",
-            fontSize = 16.sp,
-            color = Color.Gray
-        )
+
     }
 }
 
